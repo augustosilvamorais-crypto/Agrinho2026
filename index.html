@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroSustentável 360 - Agrinho 2026</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -13,10 +14,9 @@
             <h1>AgroSustentável 360</h1>
             <nav>
                 <ul>
-                    <li><a href="#clima">Clima</a></li>
+                    <li><a href="#monitoramento">Monitoramento</a></li>
                     <li><a href="#plantio">Calendário</a></li>
                     <li><a href="#solo">Solo</a></li>
-                    <li><a href="#satelite">Satélite</a></li>
                     <li><a href="#lojas">Marketplace</a></li>
                     <li><a href="#projeto">Agrinho 2026</a></li>
                     <li><a href="#sobre">Autor</a></li>
@@ -33,8 +33,7 @@
             </div>
         </section>
 
-        <section id="clima" class="card-section">
-            <h2>Monitoramento Climático</h2>
+        <section id="monitoramento" class            <h2>Monitoramento Climático</h2>
             <div class="search-box">
                 <input type="text" id="city-input" placeholder="Digite a região desejada (Ex: Arapoti)...">
                 <button onclick="buscarClima()">Consultar</button>
