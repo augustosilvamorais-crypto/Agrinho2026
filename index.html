@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSustentável 360 - Agrinho 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>AgroSustentável 360</h1>
+            <nav>
+                <ul>
+                    <li><a href="#clima">Clima</a></li>
+                    <li><a href="#plantio">Calendário</a></li>
+                    <li><a href="#solo">Solo</a></li>
+                    <li><a href="#satelite">Satélite</a></li>
+                    <li><a href="#lojas">Marketplace</a></li>
+                    <li><a href="#projeto">Agrinho 2026</a></li>
+                    <li><a href="#sobre">Autor</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Tecnologia e Sustentabilidade no Campo</h2>
+                <p>Plataforma integrada de monitoramento, análise e fomento ao agronegócio consciente.</p>
+            </div>
+        </section>
+
+        <section id="clima" class="card-section">
+            <h2>Monitoramento Climático</h2>
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Digite a região desejada (Ex: Arapoti)...">
+                <button onclick="buscarClima()">Consultar</button>
+            </div>
+            <div id="clima-resultado" class="resultado-container hide">
+                <div class="clima-header">
+                    <h3 id="clima-cidade">Região</h3>
+                    <p id="clima-data">Data</p>
+                </div>
+                <div class="clima-detalhes">
+                    <div class="info-bloco"><span class="label">Temperatura:</span> <span id="clima-temp">--</span></div>
+                    <div class="info-bloco"><span class="label">Condição:</span> <span id="clima-condicao">--</span></div>
+                    <div class="info-bloco"><span class="label">Umidade do Ar:</span> <span id="clima-umidade">--</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plantio" class="card-section">
+            <h2>Calendário de Plantio Inteligente</h2>
+            <p>Selecione o mês atual para verificar quais culturas estão recomendadas para o plantio sustentável.</p>
+            <div class="select-box">
+                <select id="mes-select" onchange="verificarPlantio()">
+                    <option value="">Selecione o Mês</option>
+                    <option value="janeiro">Janeiro</option>
+                    <option value="fevereiro">Fevereiro</option>
+                    <option value="marco">Março</option>
+                    <option value="abril">Abril</option>
+                    <option value="maio">Maio</option>
+                    <option value="junho">Junho</option>
+                    <option value="julho">Julho</option>
+                    <option value="agosto">Agosto</option>
+                    <option value="setembro">Setembro</option>
+                    <option value="outubro">Outubro</option>
+                    <option value="novembro">Novembro</option>
+                    <option value="dezembro">Dezembro</option>
+                </select>
+            </div>
+            <div id="plantio-resultado" class="resultado-container hide">
+                <h3>Culturas Recomendadas</h3>
+                <ul id="lista-culturas"></ul>
+            </div>
+        </section>
+
+        <section id="solo" class="card-section">
+            <h2>Análise Analítica do Solo</h2>
+            <p>Insira os parâmetros laboratoriais simplificados para obter o diagnóstico de manejo.</p>
+            <div class="form-solo">
+                <div class="input-group">
+                    <label for="solo-ph">pH do Solo:</label>
+                    <input type="number" id="solo-ph" step="0.1" placeholder="Ex: 5.5">
+                </div>
+                <div class="input-group">
+                    <label for="solo-umidade">Umidade Atual (%):</label>
+                    <input type="number" id="solo-umidade" placeholder="Ex: 40">
+                </div>
+                <button onclick="analisarSolo()">Gerar Diagnóstico</button>
+            </div>
+            <div id="solo-resultado" class="resultado-container hide">
+                <h3>Resultado da Análise</h3>
+                <p id="solo-diagnostico"></p>
+            </div>
+        </section>
+
+        <section id="satelite" class="card-section">
+            <h2>Telemetria e Imagem de Satélite</h2>
+            <p>Consulte o índice de cobertura vegetal e previsão de precipitação por imageamento orbital.</p>
+            <button onclick="simularSatelite()">Ativar Varredura de Satélite</button>
+            <div id="satelite-resultado" class="resultado-container hide">
+                <div class="satellite-radar">
+                    <div class="radar-line"></div>
+                    <p>Conexão Orbital Estabelecida</p>
+                </div>
+                <div class="clima-detalhes">
+                    <div class="info-bloco"><span class="label">Índice NDVI (Vegetação):</span> <span id="sat-ndvi">--</span></div>
+                    <div class="info-bloco"><span class="label">Previsão de Chuva Extrema:</span> <span id="sat-chuva">--</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lojas" class="card-section">
+            <h2>Marketplace Agrícola Sustentável</h2>
+            <p>Fornecedores homologados de insumos biológicos, sementes certificadas e ferramentas de precisão.</p>
+            <div class="grid-lojas">
+                <div class="loja-card">
+                    <h3>BioInsumos Arapoti</h3>
+                    <p>Especializada em defensivos biológicos e fertilizantes orgânicos.</p>
+                    <span class="tag">Parceiro Certificado</span>
+                </div>
+                <div class="loja-card">
+                    <h3>Sementes Progresso</h3>
+                    <p>Variedades de sementes de alta linhagem com tratamento sustentável.</p>
+                    <span class="tag">Grãos e Mudas</span>
+                </div>
+                <div class="loja-card">
+                    <h3>TecnoCampo Equipamentos</h3>
+                    <p>Sensores de umidade de solo e ferramentas para agricultura de precisão.</p>
+                    <span class="tag">Tecnologia</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projeto" class="card-section destaque-section">
+            <h2>Sobre o Projeto Agrinho 2026</h2>
+            <p>O Programa Agrinho é a principal iniciativa de responsabilidade social do Sistema FAEP/SENAR-PR. Na edição de 2026, foca no incentivo à inovação tecnológica aplicada à sustentabilidade rural. O ecossistema AgroSustentável 360 foi concebido para responder diretamente a esse desafio, transformando dados complexos em decisões simples para o produtor rural, mitigando impactos climáticos e preservando os recursos naturais.</p>
+        </section>
+
+        <section id="sobre" class="card-section destaque-section">
+            <h2>Idealizador do Projeto</h2>
+            <div class="perfil-info">
+                <h3>Augusto Gabriel</h3>
+                <p>Estudante do 1º Ano do Ensino Médio</p>
+                <p><strong>Instituição:</strong> Colégio Estadual Coronel Costa Neto</p>
+                <p><strong>Cidade:</strong> Arapoti - PR</p>
+                <p class="biografia">Desenvolvedor focado em soluções digitais que unam a programação e a agricultura. Este projeto representa a aplicação prática do conhecimento técnico em benefício da comunidade agrícola regional, alinhando produtividade e conservação ambiental.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 AgroSustentável 360 - Inovação Tecnológica no Campo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
