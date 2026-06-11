@@ -2,94 +2,125 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<title>Agro Sustentável</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Sustentável Agrinho</title>
 
 <link rel="stylesheet" href="style.css">
-
-<!-- Leaflet mapa -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 
 <body>
 
 <header>
-    <h1>🌱 Agro Sustentável Agrinho</h1>
+    <h1>🌱 Agro Sustentável - Plataforma Inteligente</h1>
 </header>
 
 <nav>
     <a href="#mapa">Mapa</a>
+    <a href="#agro">Agro</a>
     <a href="#videos">Vídeos</a>
-    <a href="#solo">Solo</a>
     <a href="#noticia">Notícia</a>
-    <a href="#sobre">Sobre</a>
 </nav>
 
-<!-- MAPA -->
-<section id="mapa">
-    <h2>🌎 Mapa Climático</h2>
-    <div id="map"></div>
-</section>
+---
 
-<!-- IA VAQUINHA -->
-<div id="vaquinha">
-    🐄
-    <div id="chat">
-        <div id="resposta">Muuuu! Pergunte algo 🌱</div>
-        <input id="inputChat" placeholder="Pergunte para a vaquinha...">
-        <button onclick="perguntar()">Enviar</button>
-    </div>
+# 🌎 MAPA CLIMÁTICO (AGORA INTERATIVO)
+
+<section id="mapa">
+
+<h2>🌍 Mapa Climático em Tempo Real</h2>
+
+<input id="cidade" placeholder="Digite uma cidade">
+<button onclick="irCidade()">Buscar</button>
+
+<div id="map"></div>
+
+<div class="camadas">
+    <button onclick="trocarCamada('temp')">🌡️ Temperatura</button>
+    <button onclick="trocarCamada('chuva')">🌧️ Chuva</button>
+    <button onclick="trocarCamada('vento')">💨 Vento</button>
 </div>
 
-<!-- PESQUISA MERCADO LIVRE -->
-<section>
-    <h2>🔎 Pesquisa Agrícola</h2>
-    <input id="busca" placeholder="Pesquisar produto agrícola">
-    <button onclick="pesquisar()">Buscar</button>
 </section>
 
-<!-- VÍDEOS -->
+---
+
+# 🌱 AGRO CONTEÚDO EXTRA
+
+<section id="agro">
+
+<h2>🌾 Agricultura Sustentável</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌱 Solo saudável</h3>
+<p>Uso de rotação de culturas melhora a produtividade e reduz pragas naturalmente.</p>
+</div>
+
+<div class="card">
+<h3>💧 Irrigação inteligente</h3>
+<p>Sistemas modernos reduzem desperdício de água em até 60%.</p>
+</div>
+
+<div class="card">
+<h3>🌍 Sustentabilidade</h3>
+<p>O agro sustentável reduz impacto ambiental e aumenta lucro do produtor.</p>
+</div>
+
+</div>
+
+</section>
+
+---
+
+# 🎥 VÍDEOS
+
 <section id="videos">
-    <h2>🎥 Vídeos Agrinho</h2>
 
-    <div class="videos">
-        <iframe src="https://www.youtube.com/embed/UjU0RlTzP4Y"></iframe>
-        <iframe src="https://www.youtube.com/embed/YhpQ5UhNGiw"></iframe>
-        <iframe src="https://www.youtube.com/embed/qWw0SDxMFTY"></iframe>
-    </div>
+<h2>🎥 Conteúdo Agrinho</h2>
+
+<div class="videos">
+
+<iframe src="https://www.youtube.com/embed/UjU0RlTzP4Y"></iframe>
+<iframe src="https://www.youtube.com/embed/YhpQ5UhNGiw"></iframe>
+<iframe src="https://www.youtube.com/embed/qWw0SDxMFTY"></iframe>
+
+</div>
+
 </section>
 
-<!-- SOLO -->
-<section id="solo">
-    <h2>🌱 Simulador de Solo</h2>
+---
 
-    <textarea id="soloInput" placeholder="Descreva como cuida do solo..."></textarea>
-    <button onclick="analisarSolo()">Analisar</button>
+# 📰 NOTÍCIA (EMBUTIDA NO SITE)
 
-    <div id="resultadoSolo"></div>
-</section>
-
-<!-- NOTÍCIA -->
 <section id="noticia">
-    <h2>📰 Notícia</h2>
 
-    <article>
-        <img src="https://g1.globo.com" alt="">
-        <p>Práticas sustentáveis aumentam produtividade e reduzem impacto ambiental.</p>
-        <a href="https://g1.globo.com/globonews/jornal-globonews-edicao-das-18/especial-publicitario/banco-brb/noticia/2024/10/08/praticas-sustentaveis-aumentam-produtividade-do-agronegocio-e-reduzem-impacto-ambiental.ghtml" target="_blank">
-            Ler mais
-        </a>
-    </article>
+<h2>📰 Reportagem em Destaque</h2>
+
+<div class="noticia-box">
+
+<h3>Práticas sustentáveis aumentam produtividade do agronegócio</h3>
+
+<p>
+O agronegócio sustentável vem ganhando força no Brasil, com técnicas modernas que aumentam a produtividade e reduzem o impacto ambiental.
+</p>
+
+<p>
+O uso de tecnologias no campo, como manejo correto do solo e preservação ambiental, garante mais eficiência na produção.
+</p>
+
+<img src="https://i.imgur.com/2yaf2wb.jpg">
+
+<p>
+Essas práticas mostram que é possível produzir mais e ao mesmo tempo preservar o meio ambiente.
+</p>
+
+</div>
+
 </section>
 
-<!-- SOBRE -->
-<section id="sobre">
-    <h2>👨‍🎓 Sobre Mim</h2>
-    <p>Aluno: Augusto Gabriel</p>
-    <p>Escola: Colégio Estadual Coronel Gosta Neto</p>
-    <p>Cidade: Arapoti - PR</p>
-    <p>Projeto: Agro Sustentável Agrinho</p>
-</section>
+---
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
