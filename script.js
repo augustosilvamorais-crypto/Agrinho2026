@@ -68,5 +68,6 @@ function analisarSolo(){
         resultado = "Solo precisa de melhorias ⚠️";
     }
 
+    const OPENWEATHER_API_KEY = "d6fecac939bae8223326915bfd73d62e";
     document.getElementById("resultadoSolo").innerText = resultado;
 }
