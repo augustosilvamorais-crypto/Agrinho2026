@@ -6,9 +6,9 @@ color:white;
 }
 
 header{
-background:#16a34a;
+background:linear-gradient(90deg,#16a34a,#22c55e);
 text-align:center;
-padding:25px;
+padding:30px;
 }
 
 nav{
@@ -16,16 +16,17 @@ display:flex;
 justify-content:center;
 gap:20px;
 background:#111827;
-padding:10px;
+padding:12px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
+font-weight:bold;
 }
 
 section{
-padding:20px;
+padding:30px;
 max-width:900px;
 margin:auto;
 }
@@ -33,7 +34,7 @@ margin:auto;
 .card{
 background:#1f2937;
 padding:20px;
-border-radius:10px;
+border-radius:12px;
 text-align:center;
 }
 
@@ -45,12 +46,13 @@ background:#22c55e;
 color:white;
 text-decoration:none;
 border-radius:8px;
+font-weight:bold;
 }
 
 .videos{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:10px;
+gap:12px;
 }
 
 iframe{
@@ -63,7 +65,7 @@ border:none;
 footer{
 text-align:center;
 padding:20px;
-background:#111;
+background:#0f1720;
 margin-top:20px;
 }
 
