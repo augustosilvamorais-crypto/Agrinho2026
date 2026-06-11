@@ -1,14 +1,14 @@
 body{
 margin:0;
 font-family:Arial;
-background:#0f1720;
+background:#0b1220;
 color:white;
 }
 
 header{
 background:#16a34a;
-padding:20px;
 text-align:center;
+padding:25px;
 }
 
 nav{
@@ -26,14 +26,25 @@ text-decoration:none;
 
 section{
 padding:20px;
-max-width:1000px;
+max-width:900px;
 margin:auto;
 }
 
-#map{
-height:400px;
+.card{
+background:#1f2937;
+padding:20px;
 border-radius:10px;
+text-align:center;
+}
+
+.card a{
+display:inline-block;
 margin-top:10px;
+padding:10px 15px;
+background:#22c55e;
+color:white;
+text-decoration:none;
+border-radius:8px;
 }
 
 .videos{
@@ -49,10 +60,11 @@ border-radius:10px;
 border:none;
 }
 
-.noticia{
-background:#1f2937;
-padding:15px;
-border-radius:10px;
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+margin-top:20px;
 }
 
 @media(max-width:800px){
