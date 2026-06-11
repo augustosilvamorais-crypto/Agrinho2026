@@ -83,3 +83,34 @@ border-radius:10px;
 grid-template-columns:1fr;
 }
 }
+
+body{
+  margin:0;
+  font-family: 'Segoe UI';
+  background:#0b1220;
+  color:white;
+}
+
+header{
+  background:linear-gradient(90deg,#00c853,#1de9b6);
+  padding:30px;
+  text-align:center;
+  font-size:22px;
+}
+
+section{
+  padding:40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.news-card{
+  background:#121a2a;
+  padding:20px;
+  border-radius:12px;
+}
+
+.news-card img{
+  width:100%;
+  border-radius:10px;
+}
