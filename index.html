@@ -2,17 +2,19 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Agro Sustentável</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Sustentável</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- Leaflet (MAPA FUNCIONANDO) -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 
 <body>
 
 <header>
-    <h1>🌱 Agro Sustentável - Plataforma Inteligente</h1>
+    <h1>Agro Sustentável - Plataforma Educacional</h1>
 </header>
 
 <nav>
@@ -22,128 +24,63 @@
     <a href="#noticia">Notícia</a>
 </nav>
 
----
-
-# 🌎 MAPA CLIMÁTICO (AGORA INTERATIVO)
-
+<!-- MAPA -->
 <section id="mapa">
+    <h2>Mapa Climático</h2>
 
-<h2>🌍 Mapa Climático em Tempo Real</h2>
+    <input id="cidade" placeholder="Digite uma cidade">
+    <button onclick="buscarCidade()">Buscar</button>
 
-<input id="cidade" placeholder="Digite uma cidade">
-<button onclick="irCidade()">Buscar</button>
-
-<div id="map"></div>
-
-<div class="camadas">
-    <button onclick="trocarCamada('temp')">🌡️ Temperatura</button>
-    <button onclick="trocarCamada('chuva')">🌧️ Chuva</button>
-    <button onclick="trocarCamada('vento')">💨 Vento</button>
-</div>
-
+    <div id="map"></div>
 </section>
 
----
-
-# 🌱 AGRO CONTEÚDO EXTRA
-
+<!-- AGRO -->
 <section id="agro">
+    <h2>Sobre o Agro Sustentável</h2>
 
-<h2>🌾 Agricultura Sustentável</h2>
+    <p>
+    O agronegócio sustentável utiliza práticas que preservam o solo, reduzem o impacto ambiental e aumentam a produtividade.
+    </p>
 
-<div class="cards">
-
-<div class="card">
-<h3>🌱 Solo saudável</h3>
-<p>Uso de rotação de culturas melhora a produtividade e reduz pragas naturalmente.</p>
-</div>
-
-<div class="card">
-<h3>💧 Irrigação inteligente</h3>
-<p>Sistemas modernos reduzem desperdício de água em até 60%.</p>
-</div>
-
-<div class="card">
-<h3>🌍 Sustentabilidade</h3>
-<p>O agro sustentável reduz impacto ambiental e aumenta lucro do produtor.</p>
-</div>
-
-</div>
-
+    <p>
+    Técnicas como rotação de culturas, uso de adubos orgânicos e irrigação inteligente são fundamentais para um futuro mais equilibrado.
+    </p>
 </section>
 
----
-
-# 🎥 VÍDEOS
-
+<!-- VÍDEOS -->
 <section id="videos">
+    <h2>Vídeos Educativos</h2>
 
-<h2>🎥 Conteúdo Agrinho</h2>
-
-<div class="videos">
-
-<iframe src="https://www.youtube.com/embed/UjU0RlTzP4Y"></iframe>
-<iframe src="https://www.youtube.com/embed/YhpQ5UhNGiw"></iframe>
-<iframe src="https://www.youtube.com/embed/qWw0SDxMFTY"></iframe>
-
-</div>
-
+    <div class="videos">
+        <iframe src="https://www.youtube.com/embed/UjU0RlTzP4Y"></iframe>
+        <iframe src="https://www.youtube.com/embed/YhpQ5UhNGiw"></iframe>
+        <iframe src="https://www.youtube.com/embed/qWw0SDxMFTY"></iframe>
+    </div>
 </section>
 
----
-
-# 📰 NOTÍCIA (EMBUTIDA NO SITE)
-
+<!-- NOTÍCIA (SEM EMOJI, TEXTO LIMPO) -->
 <section id="noticia">
+    <h2>Notícia</h2>
 
-<h2>📰 Reportagem em Destaque</h2>
+    <div class="noticia">
+        <h3>Práticas sustentáveis aumentam produtividade do agronegócio</h3>
 
-<div class="noticia-box">
+        <p>
+        O agronegócio sustentável tem crescido no Brasil com a adoção de técnicas modernas de manejo do solo e preservação ambiental.
+        </p>
 
-<h3>Práticas sustentáveis aumentam produtividade do agronegócio</h3>
+        <p>
+        Essas práticas contribuem para o aumento da produtividade ao mesmo tempo em que reduzem o impacto ambiental.
+        </p>
 
-<p>
-O agronegócio sustentável vem ganhando força no Brasil, com técnicas modernas que aumentam a produtividade e reduzem o impacto ambiental.
-</p>
-
-<p>
-O uso de tecnologias no campo, como manejo correto do solo e preservação ambiental, garante mais eficiência na produção.
-</p>
-
-<img src="https://i.imgur.com/2yaf2wb.jpg">
-
-<p>
-Essas práticas mostram que é possível produzir mais e ao mesmo tempo preservar o meio ambiente.
-</p>
-
-</div>
-
+        <p>
+        O uso de tecnologias no campo tem permitido maior eficiência na produção agrícola e melhor aproveitamento dos recursos naturais.
+        </p>
+    </div>
 </section>
-
----
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
 
 </body>
 </html>
-
-<section class="news">
-  <h2>📰 Destaque do Agronegócio Sustentável</h2>
-
-  <div class="news-card">
-    <img src="https://i.imgur.com/2yaf2wb.jpg">
-
-    <h3>Práticas sustentáveis aumentam produtividade no agro</h3>
-
-    <p>
-      O agronegócio sustentável vem crescendo no Brasil com tecnologias
-      que reduzem impacto ambiental e aumentam a eficiência produtiva.
-    </p>
-
-    <p>
-      Técnicas como rotação de culturas, integração lavoura-pecuária-floresta
-      e manejo inteligente do solo estão transformando o setor.
-    </p>
-  </div>
-</section>
