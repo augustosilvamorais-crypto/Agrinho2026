@@ -56,3 +56,5 @@ L.marker([data.coord.lat, data.coord.lon])
 
 // inicial
 trocarCamada("temp");
+
+const API = "d6fecac939bae8223326915bfd73d62e";
