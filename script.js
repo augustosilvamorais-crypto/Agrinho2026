@@ -1,73 +1,58 @@
+
 // MAPA
-const map = L.map('map').setView([-20, -50], 3);
+const map = L.map('map').setView([-15, -47], 4);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'OpenStreetMap'
-}).addTo(map);
+// base
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
+// camadas clima (OpenWeather)
+let camadaAtual;
 
-// ====== OPENWEATHER API ======
-const OPENWEATHER_API_KEY = "COLE_SUA_CHAVE_AQUI";
+const API = "SUA_CHAVE_AQUI";
 
-async function clima(lat, lon){
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric`;
+// trocar camada
+function trocarCamada(tipo){
 
-    const res = await fetch(url);
-    const data = await res.json();
-
-    L.marker([lat, lon])
-        .addTo(map)
-        .bindPopup(`🌡️ ${data.main.temp}°C`)
-        .openPopup();
+if(camadaAtual){
+map.removeLayer(camadaAtual);
 }
 
-// exemplo Brasil
-clima(-15.78, -47.93);
+let url = "";
 
-
-// ===== VAQUINHA IA (backend futuramente) =====
-async function perguntar(){
-    const texto = document.getElementById("inputChat").value;
-
-    const resposta = await fetch("/api/vaquinha",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({pergunta:texto})
-    });
-
-    const data = await resposta.json();
-
-    document.getElementById("resposta").innerHTML =
-        "🐄 Muuuu! " + data.resposta;
+if(tipo === "temp"){
+url = `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${API}`;
 }
 
-
-// ===== MERCADO LIVRE =====
-function pesquisar(){
-    const q = document.getElementById("busca").value;
-    window.open("https://lista.mercadolivre.com.br/" + q);
+if(tipo === "chuva"){
+url = `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${API}`;
 }
 
-
-// ===== SOLO =====
-function analisarSolo(){
-    const texto = document.getElementById("soloInput").value.toLowerCase();
-
-    let pontos = 0;
-
-    if(texto.includes("rotação")) pontos++;
-    if(texto.includes("adubo")) pontos++;
-    if(texto.includes("cobertura")) pontos++;
-    if(texto.includes("orgânico")) pontos++;
-
-    let resultado = "";
-
-    if(pontos >= 3){
-        resultado = "Solo saudável 🌱 ótimo manejo!";
-    } else {
-        resultado = "Solo precisa de melhorias ⚠️";
-    }
-
-    const OPENWEATHER_API_KEY = "d6fecac939bae8223326915bfd73d62e";
-    document.getElementById("resultadoSolo").innerText = resultado;
+if(tipo === "vento"){
+url = `https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${API}`;
 }
+
+camadaAtual = L.tileLayer(url);
+camadaAtual.addTo(map);
+}
+
+// cidade
+async function irCidade(){
+
+const cidade = document.getElementById("cidade").value;
+
+const res = await fetch(
+`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${API}&units=metric`
+);
+
+const data = await res.json();
+
+map.setView([data.coord.lat, data.coord.lon], 6);
+
+L.marker([data.coord.lat, data.coord.lon])
+.addTo(map)
+.bindPopup(`🌡️ ${data.main.temp}°C`)
+.openPopup();
+}
+
+// inicial
+trocarCamada("temp");
