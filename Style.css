@@ -1,0 +1,279 @@
+/* Definições de Cores e Fontes */
+:root {
+    --primary-color: #1b5e20;
+    --primary-light: #2e7d32;
+    --accent-color: #388e3c;
+    --bg-color: #f4f7f4;
+    --card-bg: #ffffff;
+    --text-color: #212121;
+    --text-muted: #666666;
+    --border-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #a5d6a7;
+}
+
+/* Container Principal */
+main {
+    max-width: 1200px;
+    margin: 80px auto 40px auto;
+    padding: 0 1rem;
+}
+
+/* Seção Hero */
+.hero {
+    background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.9)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200') no-repeat center center/cover;
+    color: #ffffff;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Estrutura dos Cards das Seções */
+.card-section {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    border-left: 5px solid var(--primary-light);
+}
+
+.card-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.card-section p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Elementos de Formulário */
+.search-box, .select-box, .form-solo {
+    display: flex;
+    gap: 1rem;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-light);
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: var(--primary-light);
+}
+
+/* Resultados Dinâmicos */
+.resultado-container {
+    background-color: #f9fbf9;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.hide {
+    display: none !important;
+}
+
+.clima-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.clima-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.info-bloco .label {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Grid do Marketplace */
+.grid-lojas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.loja-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 6px;
+    background-color: #fafafa;
+}
+
+.loja-card h3 {
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
+}
+
+.loja-card .tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: var(--primary-color);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+/* Seções de Destaque (Sobre e Agrinho) */
+.destaque-section {
+    border-left: 5px solid var(--primary-color);
+    background-color: #f1f8e9;
+}
+
+.perfil-info p {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.perfil-info .biografia {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+/* Efeito de Radar para o Satélite */
+.satellite-radar {
+    background-color: #111;
+    color: #00ff00;
+    padding: 2rem;
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
+
+.radar-line {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 255, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+}
