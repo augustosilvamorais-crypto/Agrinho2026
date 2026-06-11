@@ -1,162 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroSustentável 360 - Agrinho 2026</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Sustentável Agrinho</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Leaflet mapa -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
+
 <body>
 
-    <header>
-        <div class="header-container">
-            <h1>AgroSustentável 360</h1>
-            <nav>
-                <ul>
-                    <li><a href="#monitoramento">Monitoramento</a></li>
-                    <li><a href="#plantio">Calendário</a></li>
-                    <li><a href="#solo">Solo</a></li>
-                    <li><a href="#lojas">Marketplace</a></li>
-                    <li><a href="#projeto">Agrinho 2026</a></li>
-                    <li><a href="#sobre">Autor</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+    <h1>🌱 Agro Sustentável Agrinho</h1>
+</header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Tecnologia e Sustentabilidade no Campo</h2>
-                <p>Plataforma integrada de monitoramento, análise e fomento ao agronegócio consciente.</p>
-            </div>
-        </section>
+<nav>
+    <a href="#mapa">Mapa</a>
+    <a href="#videos">Vídeos</a>
+    <a href="#solo">Solo</a>
+    <a href="#noticia">Notícia</a>
+    <a href="#sobre">Sobre</a>
+</nav>
 
-        <section id="monitoramento" class            <h2>Monitoramento Climático</h2>
-            <div class="search-box">
-                <input type="text" id="city-input" placeholder="Digite a região desejada (Ex: Arapoti)...">
-                <button onclick="buscarClima()">Consultar</button>
-            </div>
-            <div id="clima-resultado" class="resultado-container hide">
-                <div class="clima-header">
-                    <h3 id="clima-cidade">Região</h3>
-                    <p id="clima-data">Data</p>
-                </div>
-                <div class="clima-detalhes">
-                    <div class="info-bloco"><span class="label">Temperatura:</span> <span id="clima-temp">--</span></div>
-                    <div class="info-bloco"><span class="label">Condição:</span> <span id="clima-condicao">--</span></div>
-                    <div class="info-bloco"><span class="label">Umidade do Ar:</span> <span id="clima-umidade">--</span></div>
-                </div>
-            </div>
-        </section>
+<!-- MAPA -->
+<section id="mapa">
+    <h2>🌎 Mapa Climático</h2>
+    <div id="map"></div>
+</section>
 
-        <section id="plantio" class="card-section">
-            <h2>Calendário de Plantio Inteligente</h2>
-            <p>Selecione o mês atual para verificar quais culturas estão recomendadas para o plantio sustentável.</p>
-            <div class="select-box">
-                <select id="mes-select" onchange="verificarPlantio()">
-                    <option value="">Selecione o Mês</option>
-                    <option value="janeiro">Janeiro</option>
-                    <option value="fevereiro">Fevereiro</option>
-                    <option value="marco">Março</option>
-                    <option value="abril">Abril</option>
-                    <option value="maio">Maio</option>
-                    <option value="junho">Junho</option>
-                    <option value="julho">Julho</option>
-                    <option value="agosto">Agosto</option>
-                    <option value="setembro">Setembro</option>
-                    <option value="outubro">Outubro</option>
-                    <option value="novembro">Novembro</option>
-                    <option value="dezembro">Dezembro</option>
-                </select>
-            </div>
-            <div id="plantio-resultado" class="resultado-container hide">
-                <h3>Culturas Recomendadas</h3>
-                <ul id="lista-culturas"></ul>
-            </div>
-        </section>
+<!-- IA VAQUINHA -->
+<div id="vaquinha">
+    🐄
+    <div id="chat">
+        <div id="resposta">Muuuu! Pergunte algo 🌱</div>
+        <input id="inputChat" placeholder="Pergunte para a vaquinha...">
+        <button onclick="perguntar()">Enviar</button>
+    </div>
+</div>
 
-        <section id="solo" class="card-section">
-            <h2>Análise Analítica do Solo</h2>
-            <p>Insira os parâmetros laboratoriais simplificados para obter o diagnóstico de manejo.</p>
-            <div class="form-solo">
-                <div class="input-group">
-                    <label for="solo-ph">pH do Solo:</label>
-                    <input type="number" id="solo-ph" step="0.1" placeholder="Ex: 5.5">
-                </div>
-                <div class="input-group">
-                    <label for="solo-umidade">Umidade Atual (%):</label>
-                    <input type="number" id="solo-umidade" placeholder="Ex: 40">
-                </div>
-                <button onclick="analisarSolo()">Gerar Diagnóstico</button>
-            </div>
-            <div id="solo-resultado" class="resultado-container hide">
-                <h3>Resultado da Análise</h3>
-                <p id="solo-diagnostico"></p>
-            </div>
-        </section>
+<!-- PESQUISA MERCADO LIVRE -->
+<section>
+    <h2>🔎 Pesquisa Agrícola</h2>
+    <input id="busca" placeholder="Pesquisar produto agrícola">
+    <button onclick="pesquisar()">Buscar</button>
+</section>
 
-        <section id="satelite" class="card-section">
-            <h2>Telemetria e Imagem de Satélite</h2>
-            <p>Consulte o índice de cobertura vegetal e previsão de precipitação por imageamento orbital.</p>
-            <button onclick="simularSatelite()">Ativar Varredura de Satélite</button>
-            <div id="satelite-resultado" class="resultado-container hide">
-                <div class="satellite-radar">
-                    <div class="radar-line"></div>
-                    <p>Conexão Orbital Estabelecida</p>
-                </div>
-                <div class="clima-detalhes">
-                    <div class="info-bloco"><span class="label">Índice NDVI (Vegetação):</span> <span id="sat-ndvi">--</span></div>
-                    <div class="info-bloco"><span class="label">Previsão de Chuva Extrema:</span> <span id="sat-chuva">--</span></div>
-                </div>
-            </div>
-        </section>
+<!-- VÍDEOS -->
+<section id="videos">
+    <h2>🎥 Vídeos Agrinho</h2>
 
-        <section id="lojas" class="card-section">
-            <h2>Marketplace Agrícola Sustentável</h2>
-            <p>Fornecedores homologados de insumos biológicos, sementes certificadas e ferramentas de precisão.</p>
-            <div class="grid-lojas">
-                <div class="loja-card">
-                    <h3>BioInsumos Arapoti</h3>
-                    <p>Especializada em defensivos biológicos e fertilizantes orgânicos.</p>
-                    <span class="tag">Parceiro Certificado</span>
-                </div>
-                <div class="loja-card">
-                    <h3>Sementes Progresso</h3>
-                    <p>Variedades de sementes de alta linhagem com tratamento sustentável.</p>
-                    <span class="tag">Grãos e Mudas</span>
-                </div>
-                <div class="loja-card">
-                    <h3>TecnoCampo Equipamentos</h3>
-                    <p>Sensores de umidade de solo e ferramentas para agricultura de precisão.</p>
-                    <span class="tag">Tecnologia</span>
-                </div>
-            </div>
-        </section>
+    <div class="videos">
+        <iframe src="https://www.youtube.com/embed/UjU0RlTzP4Y"></iframe>
+        <iframe src="https://www.youtube.com/embed/YhpQ5UhNGiw"></iframe>
+        <iframe src="https://www.youtube.com/embed/qWw0SDxMFTY"></iframe>
+    </div>
+</section>
 
-        <section id="projeto" class="card-section destaque-section">
-            <h2>Sobre o Projeto Agrinho 2026</h2>
-            <p>O Programa Agrinho é a principal iniciativa de responsabilidade social do Sistema FAEP/SENAR-PR. Na edição de 2026, foca no incentivo à inovação tecnológica aplicada à sustentabilidade rural. O ecossistema AgroSustentável 360 foi concebido para responder diretamente a esse desafio, transformando dados complexos em decisões simples para o produtor rural, mitigando impactos climáticos e preservando os recursos naturais.</p>
-        </section>
+<!-- SOLO -->
+<section id="solo">
+    <h2>🌱 Simulador de Solo</h2>
 
-        <section id="sobre" class="card-section destaque-section">
-            <h2>Idealizador do Projeto</h2>
-            <div class="perfil-info">
-                <h3>Augusto Gabriel</h3>
-                <p>Estudante do 1º Ano do Ensino Médio</p>
-                <p><strong>Instituição:</strong> Colégio Estadual Coronel Costa Neto</p>
-                <p><strong>Cidade:</strong> Arapoti - PR</p>
-                <p class="biografia">Desenvolvedor focado em soluções digitais que unam a programação e a agricultura. Este projeto representa a aplicação prática do conhecimento técnico em benefício da comunidade agrícola regional, alinhando produtividade e conservação ambiental.</p>
-            </div>
-        </section>
-    </main>
+    <textarea id="soloInput" placeholder="Descreva como cuida do solo..."></textarea>
+    <button onclick="analisarSolo()">Analisar</button>
 
-    <footer>
-        <div class="footer-container">
-            <p>&copy; 2026 AgroSustentável 360 - Inovação Tecnológica no Campo. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    <div id="resultadoSolo"></div>
+</section>
+
+<!-- NOTÍCIA -->
+<section id="noticia">
+    <h2>📰 Notícia</h2>
+
+    <article>
+        <img src="https://g1.globo.com" alt="">
+        <p>Práticas sustentáveis aumentam produtividade e reduzem impacto ambiental.</p>
+        <a href="https://g1.globo.com/globonews/jornal-globonews-edicao-das-18/especial-publicitario/banco-brb/noticia/2024/10/08/praticas-sustentaveis-aumentam-produtividade-do-agronegocio-e-reduzem-impacto-ambiental.ghtml" target="_blank">
+            Ler mais
+        </a>
+    </article>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+    <h2>👨‍🎓 Sobre Mim</h2>
+    <p>Aluno: Augusto Gabriel</p>
+    <p>Escola: Colégio Estadual Coronel Gosta Neto</p>
+    <p>Cidade: Arapoti - PR</p>
+    <p>Projeto: Agro Sustentável Agrinho</p>
+</section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
