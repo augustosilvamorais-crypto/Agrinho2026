@@ -41,3 +41,5 @@ marker = L.marker([lat, lon])
 )
 .openPopup();
 }
+
+const apiKey = "d6fecac939bae8223326915bfd73d62e";
