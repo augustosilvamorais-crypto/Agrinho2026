@@ -58,3 +58,26 @@ L.marker([data.coord.lat, data.coord.lon])
 trocarCamada("temp");
 
 const API = "d6fecac939bae8223326915bfd73d62e";
+
+const map = new ol.Map({
+  target: 'map',
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ],
+  view: new ol.View({
+    center: ol.proj.fromLonLat([-52, -15]),
+    zoom: 4
+  })
+});
+
+// camada de nuvem (OpenWeather)
+function addClouds(apiKey){
+  const layer = new ol.layer.Tile({
+    source: new ol.source.XYZ({
+      url: `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${apiKey}`
+    })
+  });
+  map.addLayer(layer);
+}
